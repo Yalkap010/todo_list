@@ -113,9 +113,4 @@ Another feature I would implement would probably be a user login system and user
 ### Final Words
 All in all, I was very happy with how my project turned out. During this whole process I was battling with my perfectionist tendencies and I would periodically remind myself that finishing a project, in its barebones, is more important than making a project look like what I had imaginied in my head. It was small hurdle looking back, but it was what I needed to get over, so that I could move on and improve as a programmer and designer.
 
-## Credits
 
-Joe Groves
-
-[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joeygroves)
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joewesleygroves)
