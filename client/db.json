@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": "23a8",
+      "content": "Pick up dry cleaning",
+      "complete": false
+    },
+    {
+      "id": "2e99",
+      "content": "Do the dishes",
+      "complete": true
+    },
+    {
+      "id": "aa61",
+      "content": "Finish lectures",
+      "complete": false
+    },
+    {
+      "id": "c3c1",
+      "content": "Fold laundry",
+      "complete": false
+    },
+    {
+      "id": "a75b",
+      "content": "Make cookies",
+      "complete": false
+    }
+  ]
+}
