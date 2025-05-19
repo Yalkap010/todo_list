@@ -1,0 +1,140 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<style>
+    /* أنيميشن الخلفية الدرامية */
+    @keyframes dramaticBackground {
+        0% { background-color: #ffebee; }
+        50% { background-color: #ffcdd2; }
+        100% { background-color: #ffebee; }
+    }
+    
+    /* أنيميشن الاهتزاز للتحذير */
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    
+    /* أنيميشن التلاشي التدريجي */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* أنيميشن النبض للزر */
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 83, 80, 0.7); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(239, 83, 80, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 83, 80, 0); }
+    }
+    
+    /* تصميم الصفحة الرئيسية */
+    body {
+        animation: dramaticBackground 3s infinite;
+    }
+    
+    /* تصميم شريط العودة */
+    .header-bar {
+        background: linear-gradient(to right, #ef5350, #d32f2f);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 4px 20px rgba(239, 83, 80, 0.3);
+    }
+    
+    .header-bar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .header-bar a:hover {
+        transform: translateX(-5px);
+    }
+    
+    .header-bar a::before {
+        content: "←";
+        margin-right: 5px;
+        font-size: 1.2em;
+    }
+    
+    /* تصميم كارت التأكيد */
+    .card-body {
+        background: white;
+        padding: 30px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.8s ease-out, shake 0.5s ease 0.8s;
+    }
+    
+    /* تصميم نص التحذير */
+    .card-body p {
+        color: #d32f2f;
+        font-size: 1.2em;
+        margin-bottom: 25px;
+        text-align: center;
+        font-weight: bold;
+        animation: fadeIn 1s ease-out;
+    }
+    
+    .card-body b {
+        color: #b71c1c;
+        background: #ffebee;
+        padding: 2px 8px;
+        border-radius: 4px;
+        animation: fadeIn 1.2s ease-out;
+    }
+    
+    /* تصميم زر الحذف */
+    .button {
+        background: linear-gradient(to right, #ef5350, #d32f2f);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        width: 100%;
+        transition: all 0.3s ease;
+        animation: fadeIn 1.4s ease-out, pulse 2s infinite 1.4s;
+    }
+    
+    .button:hover {
+        background: linear-gradient(to right, #d32f2f, #b71c1c);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(239, 83, 80, 0.4);
+    }
+    
+    .button:active {
+        transform: translateY(1px);
+    }
+    
+    /* تأثيرات إضافية */
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">Go Back</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this task? <b>"{{task}}"</b></p>
+        <input class="button" type="submit" value="Delete" />
+    </form>
+</div>
+
+{% endblock content %}

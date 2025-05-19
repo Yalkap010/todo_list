@@ -1,0 +1,367 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="login-container">
+    <div class="header-bar">
+        <h1>Welcome Back</h1>
+        <div class="animated-dots">
+            <div class="dot" style="--delay: 0s"></div>
+            <div class="dot" style="--delay: 0.2s"></div>
+            <div class="dot" style="--delay: 0.4s"></div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="form-header">
+            <h2>Login</h2>
+            <div class="form-icon">
+                <i class="fas fa-user-lock"></i>
+            </div>
+        </div>
+        
+        <form method="POST" class="login-form">
+            {% csrf_token %}
+            
+            <div class="form-group floating">
+                {{form.username}}
+                <label for="id_username">Username</label>
+                <i class="fas fa-user"></i>
+            </div>
+            
+            <div class="form-group floating">
+                {{form.password}}
+                <label for="id_password">Password</label>
+                <i class="fas fa-lock"></i>
+                <span class="toggle-password"><i class="fas fa-eye"></i></span>
+            </div>
+            
+            <input class="button pulse-on-hover" type="submit" value="Login">
+            
+            <div class="form-footer">
+                <p>Don't have an account? <a href="{% url 'register' %}" class="animated-link">Register Now</a></p>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.login-container {
+    max-width: 550px;
+    margin: 50px auto;
+    padding: 20px; /* إضافة padding لتأكيد أن البطاقة داخل الإطار */
+    background: #f5f6fa; /* لون خلفية فاتح خلف البطاقة */
+    border-radius: 20px;
+    box-shadow: 60 25px 35px rgba(0, 0, 0, 0.1); /* ظل خارجي لإبراز البطاقة بالكامل */
+    animation: fadeInUp 0.8s ease-out;
+}
+
+    
+    .header-bar {
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    
+    .header-bar h1 {
+        font-size: 2.5rem;
+        color: #6c5ce7;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #6c5ce7, #a29bfe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textGlow 2s infinite alternate;
+    }
+    
+    .animated-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #6c5ce7, #a29bfe);
+        animation: bounce 1s infinite var(--delay);
+    }
+    
+    .card-body {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+        transform-style: preserve-3d;
+        transition: all 0.5s ease;
+    }
+    
+    .card-body:hover {
+        transform: translateY(-5px) rotateX(2deg);
+        box-shadow: 0 15px 35px rgba(108, 92, 231, 0.3);
+    }
+    
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    
+    .form-header h2 {
+        font-size: 1.8rem;
+        color: #2d3436;
+        margin-bottom: 15px;
+    }
+    
+    .form-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        animation: pulse 2s infinite;
+    }
+    
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .form-group {
+        position: relative;
+    }
+    
+    .form-group i {
+        position: absolute;
+        top: 18px;
+        left: 15px;
+        color: #6c5ce7;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 15px 15px 15px 45px;
+        border: 2px solid #dfe6e9;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus {
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    }
+    
+    .floating label {
+        position: absolute;
+        top: 15px;
+        left: 45px;
+        color: #636e72;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+    
+    .floating input:focus + label,
+    .floating input:not(:placeholder-shown) + label {
+        top: -10px;
+        left: 35px;
+        font-size: 0.8rem;
+        background: white;
+        padding: 0 5px;
+        color: #6c5ce7;
+    }
+    
+    .toggle-password {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #636e72;
+        cursor: pointer;
+    }
+    
+    .button {
+        background: linear-gradient(to right, #6c5ce7, #a29bfe);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+    }
+    
+    .button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+    }
+    
+    .pulse-on-hover:hover {
+        animation: pulse 1s infinite;
+    }
+    
+    .form-footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .form-footer p {
+        color: #636e72;
+        margin-bottom: 10px;
+    }
+    
+    .animated-link {
+        color: #6c5ce7;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #6c5ce7, #a29bfe);
+        transition: width 0.3s ease;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+    
+    .forgot-password {
+        color: #636e72;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .forgot-password:hover {
+        color: #6c5ce7;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes textGlow {
+        from {
+            text-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+        }
+        to {
+            text-shadow: 0 0 15px rgba(108, 92, 231, 0.6);
+        }
+    }
+    
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4);
+        }
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
+        }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .login-container {
+            margin: 20px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .header-bar h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script>
+    // Toggle password visibility
+    document.querySelector('.toggle-password').addEventListener('click', function() {
+        const passwordInput = document.querySelector('#id_password');
+        const icon = this.querySelector('i');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+    
+    // Add ripple effect to button
+    document.querySelector('.button').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Create ripple element
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        // Get click position
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Position the ripple
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            ripple.remove();
+            this.closest('form').submit();
+        }, 600);
+    });
+    
+    // Add floating label functionality
+    document.querySelectorAll('.floating input').forEach(input => {
+        // Add placeholder with a space to trigger floating labels
+        if (!input.getAttribute('placeholder')) {
+            input.setAttribute('placeholder', ' ');
+        }
+    });
+</script>
+
+{% endblock content %}
