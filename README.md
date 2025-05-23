@@ -47,5 +47,5 @@ Edit Page
 
 
 Delete Page
-![WhatsApp Image 2024-07-18 at 21 19 52 (2)](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-01-57.jpg)
+![WhatsApp Image 2024-07-18 at 21 19 52 (2)](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-02-04.jpg)
 
