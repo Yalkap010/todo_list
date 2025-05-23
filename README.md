@@ -22,3 +22,20 @@ This Repo consists of the following files :
 
 
 - uses chrome
+
+
+# Preview
+Main  Page
+![1](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-02-07.jpg)
+
+Login Page
+![WhatsApp Image 2024-07-18 at 21 19 52](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-01-40.jpg)
+
+Register Page
+![WhatsApp Image 2024-07-18 at 21 19 52 (1)](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-01-52.jpg)
+
+View To-Do Page
+![WhatsApp Image 2024-07-18 at 21 19 51](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-01-57.jpg)
+
+Edit Page
+![WhatsApp Image 2024-07-18 at 21 19 52 (2)](https://github.com/Yalkap010/todo_list/blob/main/design/photo_2025-05-20_00-01-57.jpg)
