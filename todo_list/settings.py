@@ -118,6 +118,8 @@ LOGIN_URL = 'login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+ALLOWED_HOSTS = ['your-service-name.onrender.com']
+
 
 STATIC_URL = '/static/'
 
